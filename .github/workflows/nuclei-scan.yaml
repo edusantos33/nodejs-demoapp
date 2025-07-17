@@ -16,7 +16,7 @@ jobs:
         id: nuclei_scan
         uses: projectdiscovery/nuclei-action@main
         with:
-          target: https://example.com
+          target: ${{ inputs.target_url }}
 
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v4
