@@ -25,5 +25,10 @@ jobs:
         fetch-depth: 0
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.2.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+      with:
+        projectBaseDir: app/src
+        args: >
+          -Dsonar.organization=ghscd2025 
+          -Dsonar.projectKey=ghscd2025_ghscd
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
