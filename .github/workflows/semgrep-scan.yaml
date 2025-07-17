@@ -24,5 +24,6 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v4
-      - run: semgrep --config p/owasp-top-ten --json --output semgrep.json .
+      - run: semgrep ci
+      #- run: semgrep --config p/owasp-top-ten --json --output semgrep.json .
 
