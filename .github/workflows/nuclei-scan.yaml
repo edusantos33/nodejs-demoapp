@@ -16,7 +16,7 @@ jobs:
         id: nuclei_scan
         uses: projectdiscovery/nuclei-action@main
         with:
-          target: ${{ env.TARGET_URL }}
+          target: https://fantastic-space-zebra-96v44prxx7wcx4jr-3000.app.github.dev
 
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v4
