@@ -1,9 +1,11 @@
 name: DevSecOps Full Pipeline
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main
+      - master
 
 permissions:
   contents: read
