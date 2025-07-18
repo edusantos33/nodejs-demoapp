@@ -1,0 +1,21 @@
+# Ignorar findings por commit hash
+[[allowlist]]
+description = "Ignorar commit com chave APPINSIGHTS antiga"
+commits = ["dc08f44f899433030e099d64b6c00e54e83f0d38", "6f84c9531a1d8e2a3ca7b4206c73d0ad2d8c5127"]
+
+# Ignorar findings por arquivo
+[[allowlist]]
+description = "Ignorar findings no arquivo kubernetes/app.yaml"
+paths = ["kubernetes/app.yaml"]
+
+[[allowlist]]
+description = "Ignorar findings no arquivo auth/init.js"
+paths = ["auth/init.js"]
+
+# Alternativa: ignorar por fingerprint (mais preciso)
+[[allowlist]]
+description = "Ignore finding específico por fingerprint"
+fingerprints = [
+  "dc08f44f899433030e099d64b6c00e54e83f0d38:kubernetes/app.yaml:generic-api-key:17",
+  "6f84c9531a1d8e2a3ca7b4206c73d0ad2d8c5127:auth/init.js:generic-api-key:22"
+]
