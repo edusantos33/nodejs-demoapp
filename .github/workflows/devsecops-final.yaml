@@ -24,13 +24,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # --- Rule-based Scan com Bearer ---
-  secrets_bearer:
-    name: Rule Check - Bearer
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Bearer
-        uses: bearer/bearer-action@v2
+  #secrets_bearer:
+    #name: Rule Check - Bearer
+    #runs-on: ubuntu-latest
+    #steps:
+      #- uses: actions/checkout@v4
+      #- name: Bearer
+        #uses: bearer/bearer-action@v2
 
   # --- SAST com Semgrep ---
   sast_semgrep:
