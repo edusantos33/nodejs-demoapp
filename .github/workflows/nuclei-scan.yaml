@@ -17,7 +17,7 @@ jobs:
         id: nuclei_scan
         uses: projectdiscovery/nuclei-action@v3
         with:
-          target: https://silver-tribble-96v44prxj9x27vxw-3000.app.github.dev
+          args: -u https://silver-tribble-96v44prxj9x27vxw-3000.app.github.dev
           
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v4
