@@ -1,0 +1,30 @@
+name: dast-nuclei
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  nuclei:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start OopsSec Store
+        run: |
+          docker run -d --rm --name oopssec -p 3000:3000 leogra/oss-oopssec-store
+          timeout 120 bash -c 'until curl -fsS http://127.0.0.1:3000 >/dev/null; do sleep 3; done'
+
+      - name: Nuclei Scan
+        uses: projectdiscovery/nuclei-action@v3
+        with:
+          args: -u http://127.0.0.1:3000 -severity low,medium,high,critical -sarif-export nuclei.sarif
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: nuclei.sarif
