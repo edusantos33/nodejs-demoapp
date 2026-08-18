@@ -15,10 +15,10 @@ jobs:
 
       - name: Nuclei - Vulnerability Scan
         id: nuclei_scan
-        uses: projectdiscovery/nuclei-action@main
+        uses: projectdiscovery/nuclei-action@v3
         with:
-          target: https://fantastic-space-zebra-96v44prxx7wcx4jr-3000.app.github.dev
-
+          target: https://silver-tribble-96v44prxj9x27vxw-3000.app.github.dev
+          
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v4
         with:
